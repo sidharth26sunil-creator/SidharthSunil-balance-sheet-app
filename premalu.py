@@ -17,14 +17,14 @@ if uploaded_file:
         assets = totals.get("Asset", 0)
         liabilities = totals.get("Liability", 0)
         equity = totals.get("Equity", 0)
-       
+        
         difference = assets - (liabilities +  equity)
 
         st.subheader("Balance Sheet Summary")
         st.write(f"**Total Assets:** ₹{assets:,.2f}")
         st.write(f"**Liabilities:** ₹{liabilities:,.2f}")
         st.write(f"**Equity:** ₹{equity:,.2f}")
-        st.write(f"**Liabilities +  Equity:** ₹{(liabilities + equity):,.2f}")
+        st.write(f"**TOTAL LIABILITY:** ₹{(liabilities + equity):,.2f}")
 
         if abs(difference) < 0.01:
             st.success("✅ The balance sheet is balanced!")
@@ -35,4 +35,5 @@ if uploaded_file:
         st.error(f"Error reading file: {e}")
 else:
     st.info("Please upload an Excel file to continue.")
+
 
